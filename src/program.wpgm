@@ -5,7 +5,12 @@ program abc{
 	game.title("Autitos")
 	game.width(12)
 	game.height(10)
+	game.addVisual(pared)
 	game.addVisual(corsaRojo)
+	game.boardGround("empedrado.jpg")
+	
+		
+	
 	
 	keyboard.x().onPressDo({
 		corsaRojo.alternarImagen()
@@ -25,6 +30,10 @@ program abc{
 	
 	keyboard.left().onPressDo({
 		corsaRojo.moveteIzquierda()
+	})
+	
+	game.whenCollideDo(pared,{elemento =>
+		corsaRojo.chocar()
 	})
 	
 	game.start()
